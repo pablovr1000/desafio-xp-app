@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 /* import { useHistory } from 'react-router-dom'; */
@@ -28,6 +29,26 @@ export default function Motimentacao() {
           />
         </div>
       </form>
+      <Link to="/ativos">
+        <div>
+          <button
+            className="buttonReturn"
+            type="button"
+          >
+            Voltar
+          </button>
+        </div>
+      </Link>
+      <div>
+          <button
+            className="confirmDepRet"
+            data-testid="confirm-dep-ret"
+            type="button"
+            disabled="true"
+          >
+            Confirmar
+          </button>
+        </div>
       <Footer/>
     </div>
   );

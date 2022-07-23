@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
+import xpContext from '../context/xpContext';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-/* import xpContext from '../context/xpContext'; */
 
-export default function Login() {
+export default function Login({children}) {
   const history = useHistory();
-  /* const { setUserData } = useContext(xpContext); */
+  const { userData, setUserData } = useContext(xpContext);
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isDisabled, setIsDisabled] = useState(true);
@@ -24,8 +25,9 @@ export default function Login() {
   }, [email, password]);
 
   const handleSubmit = () => {
-    /* setUserData({ email }); */
+    setUserData({ email, name });
     localStorage.setItem('email', email);
+    localStorage.setItem('nome', name);
     history.push('/ativos');
   };
 
@@ -33,13 +35,24 @@ export default function Login() {
     <div className="containerLogin">
       <Header/>
       <form className="formLogin">
+        { console.log(userData) }
         <h3>Login</h3>
+        { userData.name ? <span>último acesso: { userData.name }</span> : <></>}
+        <input
+          className="inputName"
+          name="inputName"
+          type="name"
+          data-testid="name-input"
+          placeholder="Nome Completo"
+          value={ name }
+          onChange={ ({ target: { value } }) => setName(value) }
+        />
         <input
           className="inputLogin"
           name="email"
           type="email"
           data-testid="email-input"
-          placeholder="email"
+          placeholder="Email: xp@xp.com"
           value={ email }
           onChange={ ({ target: { value } }) => setEmail(value) }
         />
@@ -48,6 +61,7 @@ export default function Login() {
           name="password"
           type="password"
           data-testid="password-input"
+          placeholder="Senha"
           value={ password }
           onChange={ ({ target: { value } }) => setPassword(value) }
         />
@@ -58,7 +72,7 @@ export default function Login() {
           onClick={ handleSubmit }
           disabled={ isDisabled }
         >
-          Enter
+          Acessar
         </button>
       </form>
       <Footer/>

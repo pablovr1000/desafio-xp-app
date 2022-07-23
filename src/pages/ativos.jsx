@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import SwingTrade from '../components/swingTrade';
@@ -42,6 +43,17 @@ export default function Ativos() {
         </div>
       </form>
       <SwingTrade/>
+      <Link to="/movimentacao">
+        <div>
+          <button
+            className="buttonDepRet"
+            data-testid="button-dep-ret"
+            type="button"
+          >
+            Depósito/Retirada
+          </button>
+        </div>
+      </Link>
       <Footer/>
     </div>
   );

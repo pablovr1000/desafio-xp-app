@@ -3,16 +3,16 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import xpProvider from './context/xpProvider';
+import XpProvider from './context/XpProvider';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <xpProvider>
+      <XpProvider>
         <App />
-      </xpProvider>
+      </XpProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
