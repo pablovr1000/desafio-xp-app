@@ -1,9 +1,13 @@
 import React from 'react';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import SwingTrade from '../components/swingTrade';
 /* import { useHistory } from 'react-router-dom'; */
 
 export default function Ativos() {
   return (
     <div className="containerAtivos">
+      <Header/>
       <form className="formMeusAtivos">
         <h3>Minhas Ações</h3>
         <div className="ativosInfo">
@@ -18,7 +22,27 @@ export default function Ativos() {
           <span className="titulo">Valor</span>
           <span className="valorAtivo" data-testid="valor">R$ 30,01</span>
         </div>
+        <div className="negociarOptions">
+          <button
+            className="buttonCompraN"
+            data-testid="trade-compra-n"
+            type="button"
+            disabled="false"
+          >
+            C
+          </button>
+          <button
+            className="buttonVendaN"
+            data-testid="trade-venda-n"
+            type="button"
+            disabled="false"
+          >
+            V
+          </button>
+        </div>
       </form>
+      <SwingTrade/>
+      <Footer/>
     </div>
   );
 }

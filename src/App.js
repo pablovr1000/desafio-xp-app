@@ -11,7 +11,6 @@ function App() {
       <Route exact path ="/" component={ pages.Login } />
       <Route exact path ="/ativos" component={ pages.Ativos } />
       <Route exact path ="/movimentacao" component={ pages.SaquesDepositos } />
-      <Route exact path ="/swing-trade" component={ pages.SwingTrade } />
     </Switch>
   );
 }

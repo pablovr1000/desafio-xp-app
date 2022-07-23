@@ -1,9 +1,12 @@
 import React from 'react';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 /* import { useHistory } from 'react-router-dom'; */
 
 export default function Motimentacao() {
   return (
     <div className="containerConta">
+      <Header/>
       <form className="formMovimentacao">
         <div className="salvoInfo">
           <span className="saldo">Saldo em Conta: </span>
@@ -25,6 +28,7 @@ export default function Motimentacao() {
           />
         </div>
       </form>
+      <Footer/>
     </div>
   );
 }

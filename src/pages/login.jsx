@@ -1,5 +1,7 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 /* import xpContext from '../context/xpContext'; */
 
 export default function Login() {
@@ -29,6 +31,7 @@ export default function Login() {
 
   return (
     <div className="containerLogin">
+      <Header/>
       <form className="formLogin">
         <h3>Login</h3>
         <input
@@ -58,6 +61,7 @@ export default function Login() {
           Enter
         </button>
       </form>
+      <Footer/>
     </div>
   );
 }
