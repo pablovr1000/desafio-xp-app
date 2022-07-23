@@ -42,6 +42,27 @@ export default function Ativos() {
           </button>
         </div>
       </form>
+      <form className="formMeusAtivos">
+        <h3>Disponíveis para Investir</h3>
+        <div className="ativosInfo">
+          <span className="ativo" data-testid="ativo">XPTO</span>
+          <span className="ativoDescricao">Ação XPTO</span>
+        </div>
+        <div className="valorInfo">
+          <span className="titulo">Valor</span>
+          <span className="valorAtivo" data-testid="valor">R$ 30,01</span>
+        </div>
+        <div className="negociarOptions">
+          <button
+            className="buttonCompraN"
+            data-testid="trade-compra-n"
+            type="button"
+            disabled="false"
+          >
+            C
+          </button>
+        </div>
+      </form>
       <SwingTrade/>
       <Link to="/movimentacao">
         <div>

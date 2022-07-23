@@ -17,15 +17,16 @@ export default function Login({children}) {
     const PASSWORD_MIN_LENGTH = 6;
     const isEmailValid = emailRegex.test(email);
     const isPasswordValid = password.length > PASSWORD_MIN_LENGTH;
-    if (isEmailValid && isPasswordValid) {
+    if (isEmailValid && isPasswordValid && name) {
       setIsDisabled(false);
     } else {
       setIsDisabled(true);
     }
-  }, [email, password]);
+  }, [email, password, name]);
 
   const handleSubmit = () => {
-    setUserData({ email, name });
+    const dateLogin = Date().toLocaleString()
+    setUserData({ email, name, dateLogin });
     localStorage.setItem('email', email);
     localStorage.setItem('nome', name);
     history.push('/ativos');
@@ -35,9 +36,16 @@ export default function Login({children}) {
     <div className="containerLogin">
       <Header/>
       <form className="formLogin">
-        { console.log(userData) }
         <h3>Login</h3>
-        { userData.name ? <span>último acesso: { userData.name }</span> : <></>}
+        { userData.name ?
+          <div>
+            <span>último acesso</span><br/>
+            <span>{ userData.name }</span><br/>
+            <span>{ userData.email }</span><br/>
+            <span>{ userData.dateLogin }</span>
+          </div>
+           : 
+          <></>}
         <input
           className="inputName"
           name="inputName"
