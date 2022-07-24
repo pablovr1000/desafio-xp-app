@@ -16,7 +16,6 @@ export default function Ativos() {
       setTitulosUser(ativosNoUser.reduce((acc, curr) => {
         const asset = ativosUser.find((element) => Object.values(element)[0] === Object.values(curr)[0]);
         if (asset && Object.values(asset)[4] > 0) {
-          console.log(asset);
           acc.push(asset)
           return acc;
         } else {
@@ -40,22 +39,27 @@ export default function Ativos() {
     }
   }, []);
 
+  const handleClick = () => {
+    console.log('clicou');
+  };
+
   return (
     <div className="containerAtivos">
       <Header/>
-      <form className="formMeusAtivos">
+      <div className="formMeusAtivos">
         <h3>Minhas Ações</h3>
         {
           titulosUser.map((asset)=> (
-            <tr>
-              <td className="ativo">{asset.titulo}</td><br/>
-              <td className="quantidadeAtivo">{asset.amount}</td><br/>
+            <tr className="formMeusAtivos">
+              <td className="ativo">{asset.titulo}</td>
+              <td className="quantidadeAtivo">{asset.amount}</td>
               <td className="valorAtivo">{asset.valor}</td>
               <td>
                 <button
                   className="buttonCompraN"
-                  data-testid="trade-compra-n"
+                  data-testid={`trade-compra-${asset.index}`}
                   type="button"
+                  onClick={ handleClick }
                 >
                   C
                 </button>
@@ -63,7 +67,7 @@ export default function Ativos() {
               <td>  
                 <button
                   className="buttonVendaN"
-                  data-testid="trade-venda-n"
+                  data-testid={`trade-venda-${asset.index}`}
                   type="button"
                 >
                   V
@@ -72,12 +76,12 @@ export default function Ativos() {
             </tr>
           ))
         }
-      </form>
-      <form className="formMeusAtivos">
+      </div>
+      <div className="formAtivosInvest">
         <h3>Disponíveis para Investir</h3>
         {
           titulosGeral.map((asset)=> (
-            <tr>
+            <tr className="formAtivosInvest">
               <td className="ativo">{asset.titulo}</td>
               <td className="valorAtivo">{asset.valor}</td>
               <td>
@@ -92,26 +96,8 @@ export default function Ativos() {
             </tr>
           ))
         }
-        {/* <div className="ativosInfo">
-          <span className="ativo" data-testid="ativo">XPTO</span>
-          <span className="ativoDescricao">Ação XPTO</span>
-        </div>
-        <div className="valorInfo">
-          <span className="titulo">Valor</span>
-          <span className="valorAtivo" data-testid="valor">R$ 30,01</span>
-        </div>
-        <div className="negociarOptions">
-          <button
-            className="buttonCompraN"
-            data-testid="trade-compra-n"
-            type="button"
-            disabled
-          >
-            C
-          </button>
-        </div> */}
-      </form>
-      <SwingTrade/>
+      </div>
+      {/* <SwingTrade/> */}
       <Link to="/movimentacao">
         <div>
           <button

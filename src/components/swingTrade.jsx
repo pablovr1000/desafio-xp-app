@@ -1,6 +1,17 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import xpContext from '../context/xpContext';
 
 export default function SwingTrade() {
+  const { userData, titulosUser, titulosGeral } = useContext(xpContext);
+  const [tradeInfo, setTradeInfo] = useState(true);
+
+  const handleClickCompra = () => {
+    console.log('clicou');
+  };
+
+  const handleClickVenda = () => {
+    console.log('clicou');
+  };
   return (
     <div className="containerConta">
       <form className="formSwingTrade">
@@ -11,7 +22,26 @@ export default function SwingTrade() {
           <span className="tradeHeaderValor">"Valor R$</span>
         </div>
         <div className="tradeInfo">
-          <span className="titulo" data-testid="titulo-name">AZUL4</span>
+          <select className="tradeInfo">
+            {
+              tradeInfo === true ? titulosUser.map((asset) =>{
+                <>
+                <option
+                  value={asset.titulo}
+                >{asset.titulo}
+                </option>
+                <label>{asset.amout}</label>
+                </>
+              })
+              :
+              titulosGeral.map((asset) =>{
+                <option
+                  value={asset.titulo}
+                >{asset.titulo}
+                </option>
+              })
+            }        
+          </select>
           <span className="titulo">99</span>
           <span className="titulo">32,65</span>
         </div>
@@ -20,6 +50,7 @@ export default function SwingTrade() {
             className="buttonCompra"
             data-testid="trade-compra"
             type="button"
+            onClick={ handleClickCompra }
             disabled=""
           >
             Comprar
@@ -28,6 +59,7 @@ export default function SwingTrade() {
             className="buttonVenda"
             data-testid="trade-venda"
             type="button"
+            onClick={ handleClickVenda }
             disabled="true"
           >
             Vender
