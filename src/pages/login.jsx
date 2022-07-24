@@ -25,8 +25,22 @@ export default function Login({children}) {
   }, [email, password, name]);
 
   const handleSubmit = () => {
+    localStorage.removeItem("user");
+    const ativos = [{
+      index: 2,
+      titulo: "AZUL4",
+      desc: "Azul S.A.",
+      valor: 11.58,
+      amount: 5
+    }
+  ]
+    const saldoConta = 5000;
     const dateLogin = Date().toLocaleString()
-    setUserData({ email, name, dateLogin });
+    if (!userData.saldoConta) {
+      setUserData({ email, name, dateLogin, saldoConta, ativos });
+    } else {
+      setUserData({ email, name, dateLogin });
+    }
     localStorage.setItem('email', email);
     localStorage.setItem('nome', name);
     history.push('/ativos');
