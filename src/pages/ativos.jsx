@@ -4,7 +4,6 @@ import { titulos } from '../data/titulos';
 import xpContext from '../context/xpContext';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-/* import SwingTrade from '../components/swingTrade'; */
 import './Ativos.css'
 
 export default function Ativos() {
