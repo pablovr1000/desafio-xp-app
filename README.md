@@ -25,7 +25,3 @@ npm install
 ```
 npm start
 ``` 
-
-### Deploy
-
-####
