@@ -42,6 +42,9 @@ Aqui eu desenvolvi uma tela que exibe as informações da ação clicada para ne
 Front-end:
 > Desenvolvido usando: React, Context, CSS3, HTML5,  ES6
 
+
+# Como Rodar este Projeto
+
 ### Clonando Projeto
 ```
 git clone git@github.com:pablovr1000/desafio-xp-app.git
