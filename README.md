@@ -16,7 +16,7 @@ git clone git@github.com:pablovr1000/desafio-xp-app.git
 ``` 
 ### Instalando Dependências
 ```
-cd 
+cd desafio-xp-app
 npm install
 ``` 
 ### Executando aplicação
