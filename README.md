@@ -5,6 +5,11 @@
 Meu nome é Pablo Vasconcelos Rios e este é o desafio que desenvolvi para processo seletivo da XPinc.
 Por motivos pessoais, tive apenas dois dias de qualidade para desenvolver a aplicação, por conta desta limitação eu decide por fazer uma aplicação parcialmente estática sem persistência com intuíto de apresentar os conhecimentos que adquiri no curso da Trybe. Este é um projeto desenvolvido em React e sua estilização está parcialmente feita, o que pode dificultar um pouco a visualização.
 
+## Contatos
+
+Este é meu Github: https://github.com/pablovr1000
+Email: pablovr200@hotmail.com
+
 ## Técnologias usadas
 
 Front-end:
